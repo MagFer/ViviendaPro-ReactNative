@@ -1,0 +1,26 @@
+{
+  "name": "ViviendaPro",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "postinstall": "(find node_modules -type f -name .babelrc | grep -v /react-native/ | xargs rm) || true"
+  },
+  "dependencies": {
+    "react": "15.4.2",
+    "react-native": "0.42.3",
+    "react-native-maps": "^0.14.0",
+    "react-native-modal": "^2.2.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "19.0.2",
+    "react-test-renderer": "15.4.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
