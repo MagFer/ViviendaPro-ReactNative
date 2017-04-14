@@ -17,12 +17,14 @@ import {
 import TrendingSection from './src/Sections/TrendingSection.js';
 import NewsSection from './src/Sections/NewsSection.js';
 import MapSection from './src/Sections/MapSection.js';
+import PropertyDetailSection from './src/Sections/PropertyDetailSection.js';
 import _ from 'underscore';
 
 var ROUTES = {
   trendingSection: TrendingSection,
   newsSection: NewsSection,
   mapSection: MapSection,
+  propertyDetailSection: PropertyDetailSection,
 }
 
 export default class ViviendaPro extends Component {
@@ -46,7 +48,7 @@ export default class ViviendaPro extends Component {
 
         <Navigator
           style={styles.wrapper}
-          initialRoute={{ name: 'mapSection' }}
+          initialRoute={{ name: 'trendingSection' }}
           renderScene={this.renderScene}
         />
 

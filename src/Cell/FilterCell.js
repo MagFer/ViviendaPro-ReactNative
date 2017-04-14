@@ -10,10 +10,12 @@ import {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 15,
-    marginVertical: 15,
+    marginHorizontal: 6,
+    marginVertical: 10,
     backgroundColor: 'green',
     borderRadius: 6,
+    height: 120,
+    width: 110,
   },
   title: {
     fontSize: 30,
@@ -21,7 +23,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   img: {
-    width: 50,
     height: 50,
     margin: 10,
     backgroundColor: 'orange'
@@ -32,8 +33,17 @@ export default class FilterCell extends Component {
   render() {
     const title = this.props.title;
     const img = this.props.img;
+    const active = this.props.active;
+
+    console.log("Active ", this.props.active);
+    if(this.props.active === true){
+      console.log("Entro en Active ");
+      this.backgroundColor = 'green'
+    }else{
+      this.backgroundColor = 'grey'
+    }
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, {backgroundColor: this.backgroundColor}]}>
         <Image style={styles.img} source={img}/>
         <Text style={styles.title}>{title}</Text>
       </View>

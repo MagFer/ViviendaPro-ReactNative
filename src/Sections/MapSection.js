@@ -4,7 +4,9 @@ import {
   StyleSheet,
   ScrollView,
   Text,
-  View
+  View,
+  Dimensions,
+  ActivityIndicator,
 } from 'react-native';
 
 import Header from '../Component/Header';
@@ -84,8 +86,8 @@ export default class MapSection extends Component {
           ))
           }
         </MapView.Animated>
-
         <Tabbar navigator={navigator} />
+        { this.state.loading && <ActivityIndicator style={styles.loading} color="black"/> }
       </View>
     );
   }
@@ -102,5 +104,10 @@ const styles = StyleSheet.create({
   map: {
     flex: 3,
     backgroundColor: 'green',
+  },
+  loading: {
+    position: 'absolute',
+    top: Dimensions.get('window').height/2,
+    right: Dimensions.get('window').width/2
   }
 });

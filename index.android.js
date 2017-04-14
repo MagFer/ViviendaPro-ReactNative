@@ -8,46 +8,60 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
+  ScrollView,
   Text,
-  View
+  View,
+  Navigator,
 } from 'react-native';
 
+import TrendingSection from './src/Sections/TrendingSection.js';
+import NewsSection from './src/Sections/NewsSection.js';
+import MapSection from './src/Sections/MapSection.js';
+import PropertyDetailSection from './src/Sections/PropertyDetailSection.js';
+import _ from 'underscore';
+
+var ROUTES = {
+  trendingSection: TrendingSection,
+  newsSection: NewsSection,
+  mapSection: MapSection,
+  propertyDetailSection: PropertyDetailSection,
+}
+
 export default class ViviendaPro extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  //FUNCIONES
+  //functions inside Component can't have function string
+  renderScene(route, navigator) {
+    var Component = ROUTES[route.name]
+    return <Component route={route} navigator={navigator} />
+  }
+
   render() {
+    console.log("News", this.news);
     return (
+
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+
+        <Navigator
+          style={styles.wrapper}
+          initialRoute={{ name: 'mapSection' }}
+          renderScene={this.renderScene}
+        />
+
       </View>
     );
   }
 }
 
+//CONSTANTES
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
 
 AppRegistry.registerComponent('ViviendaPro', () => ViviendaPro);

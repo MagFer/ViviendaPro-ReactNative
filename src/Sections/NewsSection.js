@@ -101,6 +101,8 @@ export default class NewsSection extends Component {
                                     }>
                                         <View>
                                             <FilterCell key={filterContentItem.id}
+                                                active={false}
+                                                width={50}
                                                 title={filterContentItem.title}
                                                 img={filterContentItem.image} />
                                         </View>
