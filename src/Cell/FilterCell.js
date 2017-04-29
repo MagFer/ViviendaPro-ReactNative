@@ -13,19 +13,25 @@ const styles = StyleSheet.create({
     marginHorizontal: 6,
     marginVertical: 10,
     backgroundColor: 'green',
+    flexDirection: 'column',
     borderRadius: 6,
-    height: 120,
+    height: 100,
     width: 110,
   },
   title: {
-    fontSize: 30,
-    backgroundColor: 'grey',
+    fontSize: 14,
+    textAlign: 'center',
+    //backgroundColor: 'grey',
+    marginTop: 4,
     marginHorizontal: 10,
   },
   img: {
     height: 50,
-    margin: 10,
-    backgroundColor: 'orange'
+    marginLeft: 10,
+    marginTop: 10,
+    width: 90,
+    resizeMode: 'contain',
+    //backgroundColor: 'orange'
   },
 })
 
@@ -34,13 +40,10 @@ export default class FilterCell extends Component {
     const title = this.props.title;
     const img = this.props.img;
     const active = this.props.active;
-
-    console.log("Active ", this.props.active);
     if(this.props.active === true){
-      console.log("Entro en Active ");
-      this.backgroundColor = 'green'
+      this.backgroundColor = '#B8E986'
     }else{
-      this.backgroundColor = 'grey'
+      this.backgroundColor = '#EBEBEB'
     }
     return (
       <View style={[styles.container, {backgroundColor: this.backgroundColor}]}>

@@ -86,7 +86,7 @@ export default class MapSection extends Component {
           ))
           }
         </MapView.Animated>
-        <Tabbar navigator={navigator} />
+        <Tabbar navigator={navigator} page={2}/>
         { this.state.loading && <ActivityIndicator style={styles.loading} color="black"/> }
       </View>
     );

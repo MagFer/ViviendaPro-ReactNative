@@ -121,7 +121,7 @@ export default class NewsSection extends Component {
                         })
                     }
                 </ScrollView>
-                <Tabbar navigator={navigator} />
+                <Tabbar navigator={navigator} page={3}/>
             </View>
         );
     }

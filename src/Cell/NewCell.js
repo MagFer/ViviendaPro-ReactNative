@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: 'orange',
     fontSize: 18,
-    marginTop: 10,
     marginHorizontal: 10,
     //textAlign: 'center',
     textAlignVertical: 'center',

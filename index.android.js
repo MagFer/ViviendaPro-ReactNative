@@ -14,17 +14,19 @@ import {
   Navigator,
 } from 'react-native';
 
-import TrendingSection from './src/Sections/TrendingSection.js';
+import PropertiesSection from './src/Sections/PropertiesSection.js';
 import NewsSection from './src/Sections/NewsSection.js';
 import MapSection from './src/Sections/MapSection.js';
 import PropertyDetailSection from './src/Sections/PropertyDetailSection.js';
+import ProfileSection from './src/Sections/ProfileSection.js';
 import _ from 'underscore';
 
 var ROUTES = {
-  trendingSection: TrendingSection,
+ propertiesSection: PropertiesSection,
   newsSection: NewsSection,
   mapSection: MapSection,
   propertyDetailSection: PropertyDetailSection,
+  profileSection: ProfileSection,
 }
 
 export default class ViviendaPro extends Component {
@@ -48,7 +50,7 @@ export default class ViviendaPro extends Component {
 
         <Navigator
           style={styles.wrapper}
-          initialRoute={{ name: 'mapSection' }}
+          initialRoute={{ name: 'propertiesSection' }}
           renderScene={this.renderScene}
         />
 

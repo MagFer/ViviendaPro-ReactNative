@@ -10,20 +10,21 @@ import {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red',
-    width: 50,
+    width: 80,
+    alignItems:'center',
   },
 })
 
 export default class TabBarButton extends Component {
 
   render() {
-    const image = require('../assets/button.png');
+    const image = this.props.image;
     const title = this.props.title;
     const navigator = this.props.navigator;
     const sectionKey = this.props.sectionKey;
+    const col = this.props.color;
 
-    console.log('Props Button', this.props)
+    //console.log('Props Button', this.props)
     return (
       <TouchableHighlight onPress={() => {
           navigator.replace({name : sectionKey})
@@ -33,7 +34,7 @@ export default class TabBarButton extends Component {
       }>
         <View style={styles.container}>
           <Image source={image} />
-          <Text>{title}</Text>
+          <Text style={[,{color:  '#9B9B9B'}]}>{title}</Text>
         </View>
       </TouchableHighlight>
     );
