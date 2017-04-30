@@ -9,9 +9,9 @@ ViviendaPro-ReactNative is a first contact demo of a ReactNative app for iOS & A
 ## Run Project
 To run this project Node 6.9.2 or highter version is needed as well as ReactNative framework.
 
-1.Start node server inside the project folder via command line tool. -npm start
+1. Start node server inside the project folder via command line tool. -npm start
 
-2.Init the native project in simulator via command line tool. -react-native run-ios / react-native run-android
+2. Init the native project in simulator via command line tool. -react-native run-ios / react-native run-android
 
 ## License
 
