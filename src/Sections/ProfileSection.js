@@ -7,36 +7,55 @@ import {
     View,
     TouchableHighlight,
     Image,
+    AsyncStorage,
 } from 'react-native';
 
 import Header from '../Component/Header';
 import Tabbar from '../Component/TabBar';
-import NewCell from '../Cell/NewCell';
-import FilterCell from '../Cell/FilterCell';
+import FieldCell from '../Cell/FieldCell';
 import _ from 'underscore';
+
+var STORAGE_KEY_FAVORITE_HOUSES = 'Houses:favs';
 
 export default class ProfileSection extends Component {
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            favorites: [],
+        }
     }
 
-    f
+    componentDidMount() {
+        this._loadInitialState();
+    }
+
+    _loadInitialState = async () => {
+        try {
+            const value = await AsyncStorage.getItem(STORAGE_KEY_FAVORITE_HOUSES);
+            this.setState({ favorites: JSON.parse(value) });
+            console.log('Saved selection to disk: ' + value);
+        } catch (error) {
+            console.log('AsyncStorage error: ' + error);
+        }
+    };
 
     render() {
-        console.log("Profile", this.news);
+        console.log("Favorites", this.state.favorites);
         const navigator = this.props.navigator;
 
         return (
             <View style={styles.container}>
                 <Header title={"Profile"} />
                 <View style={styles.content}>
+                    <Image style={styles.imgProfile} source={require('../assets/mortadelo.png')} />
 
-                    <Image style={styles.imgProfile} source={require('../assets/mortadelo.png')}/>
-                    
+                    <FieldCell id={1} title={"Name"} description={'Mortadelo'} />
+                    <FieldCell id={2} title={"Surname"} description={'Filemoncio Machete'} />
+                    <FieldCell id={3} title={"Age"} description={'30'} />
+                    <FieldCell id={3} title={"Fav. properties"} description={this.state.favorites.length} />
                 </View>
-                <Tabbar navigator={navigator} page={3}/>
+                <Tabbar navigator={navigator} page={3} />
             </View>
         );
     }
@@ -50,7 +69,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         flex: 1,
-
     },
     scrollViewFilters: {
         backgroundColor: 'yellow',

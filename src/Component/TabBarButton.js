@@ -22,9 +22,8 @@ export default class TabBarButton extends Component {
     const title = this.props.title;
     const navigator = this.props.navigator;
     const sectionKey = this.props.sectionKey;
-    const col = this.props.color;
+    const textColor = this.props.textColor;
 
-    //console.log('Props Button', this.props)
     return (
       <TouchableHighlight onPress={() => {
           navigator.replace({name : sectionKey})
@@ -34,7 +33,7 @@ export default class TabBarButton extends Component {
       }>
         <View style={styles.container}>
           <Image source={image} />
-          <Text style={[,{color:  '#9B9B9B'}]}>{title}</Text>
+          <Text style={[,{color:  this.props.textColor}]}>{title}</Text>
         </View>
       </TouchableHighlight>
     );
